@@ -1,0 +1,219 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-surface: var(--surface);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-accent-3: var(--accent-3);
+
+  --font-display: "Bricolage Grotesque", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+:root,
+.dark {
+  --bg: #0a0a0a;
+  --fg: #f5f4f0;
+  --muted: #8a8a86;
+  --line: rgba(245, 244, 240, 0.14);
+  --surface: rgba(245, 244, 240, 0.03);
+  --accent: #ff2d3c;
+  --accent-2: #ff6b5b;
+  --accent-3: #8a0f18;
+  color-scheme: dark;
+}
+
+.light {
+  --bg: #f5f3ee;
+  --fg: #0b0b0c;
+  --muted: #68655f;
+  --line: rgba(11, 11, 12, 0.13);
+  --surface: rgba(11, 11, 12, 0.03);
+  --accent: #d61f2c;
+  --accent-2: #ff6b5b;
+  --accent-3: #7a0e16;
+  color-scheme: light;
+}
+
+.aurora {
+  --bg: #0d0a1c;
+  --fg: #f5f2ff;
+  --muted: #9a90c4;
+  --line: rgba(245, 242, 255, 0.14);
+  --surface: rgba(245, 242, 255, 0.04);
+  --accent: #ff2fd0;
+  --accent-2: #22d3ee;
+  --accent-3: #7c5cff;
+  color-scheme: dark;
+}
+
+.iron {
+  --bg: #0d0805;
+  --fg: #f5ece0;
+  --muted: #a58a6e;
+  --line: rgba(245, 236, 224, 0.14);
+  --surface: rgba(245, 236, 224, 0.04);
+  --accent: #e2352f;
+  --accent-2: #ffd35c;
+  --accent-3: #37d0e6;
+  color-scheme: dark;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  cursor: none;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+@media (max-width: 900px) {
+  body {
+    cursor: auto;
+  }
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #0b0b0c;
+}
+
+a {
+  color: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 10px;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.hairline {
+  border-color: var(--line);
+}
+
+.index-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.section-pad {
+  padding: 130px 6vw;
+}
+@media (max-width: 700px) {
+  .section-pad {
+    padding: 90px 6vw;
+  }
+}
+
+.stroke-text {
+  -webkit-text-stroke: 1px var(--fg);
+  color: transparent;
+}
+
+.gradient-text {
+  background: linear-gradient(100deg, var(--accent), var(--accent-3) 55%, var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ambient-glow {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.ambient-glow::before,
+.ambient-glow::after {
+  content: "";
+  position: absolute;
+  width: 60vw;
+  height: 60vw;
+  max-width: 700px;
+  max-height: 700px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.16;
+  transition: opacity 0.5s ease;
+}
+.ambient-glow::before {
+  top: -10%;
+  right: -10%;
+  background: radial-gradient(circle, var(--accent), transparent 70%);
+}
+.ambient-glow::after {
+  bottom: 0%;
+  left: -10%;
+  background: radial-gradient(circle, var(--accent-3), transparent 70%);
+}
+.aurora .ambient-glow::before,
+.aurora .ambient-glow::after {
+  opacity: 0.28;
+}
+
+.perspective-1000 {
+  perspective: 1200px;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    filter: drop-shadow(0 0 2px var(--accent-3)) drop-shadow(0 0 6px var(--accent-3));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 4px var(--accent-3)) drop-shadow(0 0 14px var(--accent-3));
+  }
+}
+.glow-pulse {
+  animation: glowPulse 2.4s ease-in-out infinite;
+}
