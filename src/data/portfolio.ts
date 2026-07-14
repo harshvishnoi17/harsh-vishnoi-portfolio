@@ -3,7 +3,7 @@ export const profile = {
   initials: "HV",
   role: "AI Software Engineer & Full-Stack Developer",
   location: "Noida, Uttar Pradesh, India",
-  email: "vishnoiharsh793@gmail.com",
+  email: "vishnoiharsh17@gmail.com",
   phone: "+91 78957 67272",
   github: "https://github.com/HarshVshnoi",
   linkedin: "https://www.linkedin.com/in/harshvishnoi17",
