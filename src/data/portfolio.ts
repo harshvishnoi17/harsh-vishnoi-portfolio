@@ -8,7 +8,7 @@ export const profile = {
   github: "https://github.com/HarshVshnoi",
   linkedin: "https://www.linkedin.com/in/harshvishnoi17",
   resume: "/resume.pdf",
-  portrait: "/portrait.png",
+  portrait: "/portrait.jpg",
 };
 
 export const rotatingRoles = [
