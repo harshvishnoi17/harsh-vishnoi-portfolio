@@ -1,17 +1,17 @@
 "use client";
 
-import { Reveal, RevealHeading } from "./Reveal";
+import { Reveal, RevealHeading, RevealLine, RevealSlide } from "./Reveal";
 import HangingProfile from "./HangingProfile";
 import { aboutParagraphs, aboutFacts } from "@/data/portfolio";
 
 export default function About() {
   return (
     <section id="about" className="section-pad border-t border-line">
-      <div className="flex items-center gap-4 mb-16">
+      <RevealSlide className="flex items-center gap-4 mb-6">
         <span className="index-label">01</span>
         <span className="index-label">/ About</span>
         <div className="flex-1 h-px bg-line" />
-      </div>
+      </RevealSlide>
 
       <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-16 items-start">
         <div className="order-2 lg:order-1">
@@ -27,9 +27,10 @@ export default function About() {
         </div>
 
         <div className="order-1 lg:order-2">
+          <RevealLine delay={0.1} />
           <RevealHeading
             text="Turning complex problems into intelligent digital products."
-            className="font-display font-semibold text-[clamp(2rem,4vw,3.2rem)] leading-[1.08] tracking-tight mb-10"
+            className="font-display font-semibold text-[clamp(2rem,4vw,3.2rem)] leading-[1.08] tracking-tight mb-5"
           />
           <div className="space-y-5">
             {aboutParagraphs.map((p, i) => (
@@ -43,7 +44,7 @@ export default function About() {
           </div>
           <Reveal delay={0.2} className="mt-10 border-l-2 border-accent pl-6">
             <p className="font-display text-xl md:text-2xl font-medium leading-snug">
-              Build software that is scalable, maintainable, and genuinely useful.
+              Building intelligent software that solves real-world problems through AI, clean architecture, and modern engineering.
             </p>
           </Reveal>
         </div>

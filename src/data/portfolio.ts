@@ -27,10 +27,10 @@ export const heroStats = [
 ];
 
 export const aboutParagraphs = [
-  "I'm an <b>AI Software Engineer</b> passionate about building software where modern engineering meets artificial intelligence. My work focuses on designing scalable systems that transform business processes into intelligent digital experiences.",
-  "Whether it's developing high-performance backend APIs, architecting AI-powered workflows, integrating Large Language Models, provisioning cloud infrastructure, or creating responsive enterprise interfaces — I enjoy solving challenging engineering problems with clean, maintainable code.",
-  "Professionally, I've contributed to enterprise SaaS platforms used in <b>construction intelligence, project controls</b>, and <b>AI-assisted decision making</b> — giving me a strong end-to-end understanding of complete product development, from the first line of code to monitoring it in production.",
-  "I'm hands-on with Amazon Bedrock, LLM integrations, LangGraph-based multi-agent systems, RAG pipelines, and MCP integrations — and currently expanding my expertise in Agentic AI and cloud-native AI solutions.",
+  "I'm an <b>AI Software Engineer</b> passionate about building intelligent, scalable software that combines modern engineering with artificial intelligence. Over the past <b>2+ years</b>, I've developed enterprise-grade web and mobile applications, AI-powered platforms, and cloud-native solutions that streamline workflows, automate decision-making, and deliver real business value.",
+  "My expertise spans <b>full-stack development</b>, <b>AI application engineering</b>, and <b>cloud technologies</b> — with hands-on experience building scalable backend APIs, integrating <b>Large Language Models (LLMs)</b>, designing <b>RAG pipelines</b>, and creating responsive, high-performance user experiences.",
+  "I've contributed to enterprise <b>SaaS platforms</b> focused on <b>construction intelligence</b>, <b>project controls</b>, <b>business analytics</b>, and <b>AI-assisted decision support</b> — giving me a strong end-to-end understanding of complete product development, from the first line of code to monitoring it in production.",
+  "I enjoy owning products end-to-end — from architecture and development to deployment, monitoring, and continuous improvement — while building software that is scalable, maintainable, and genuinely impactful.",
 ];
 
 export const aboutFacts = [
@@ -49,49 +49,78 @@ export type SkillCategory = {
 
 export const skillCategories: SkillCategory[] = [
   {
-    label: "Languages",
-    tag: "01",
-    blurb: "Core languages I write daily",
-    skills: ["Python", "TypeScript", "JavaScript (ES6)", "SQL", "HTML5", "CSS3"],
-  },
-  {
-    label: "AI / Agentic Engineering",
-    tag: "02",
-    blurb: "Building intelligent, reasoning systems",
-    skills: [
-      "LLMs & AI Agents",
-      "LangGraph",
-      "LangChain",
-      "RAG & Embeddings",
-      "Vector Search",
-      "Amazon Bedrock & Nova",
-      "OpenAI API",
-      "MCP / FastMCP",
-    ],
-  },
-  {
     label: "Frontend",
-    tag: "03",
+    tag: "01",
     blurb: "Interfaces people actually enjoy using",
     skills: ["React.js", "Next.js", "React Native (Expo)", "Tailwind CSS", "DaisyUI"],
   },
   {
     label: "Backend",
-    tag: "04",
+    tag: "02",
     blurb: "APIs and services that hold up at scale",
-    skills: ["FastAPI", "Flask", "Express.js", "Node.js", "NestJS", "REST APIs"],
+    skills: ["Python FastAPI", "Node.js", "Express.js", "REST APIs"],
+  },
+  {
+    label: "Languages",
+    tag: "03",
+    blurb: "Core languages I write daily",
+    skills: ["Python", "TypeScript", "JavaScript (ES6)", "HTML5", "CSS3"],
+  },
+  {
+    label: "AI / Agentic Engineering",
+    tag: "04",
+    blurb: "Building intelligent, reasoning systems",
+    skills: [
+      "Large Language Models (LLMs)",
+      "AI Agents",
+      "LangChain",
+      "LangGraph",
+      "Retrieval-Augmented Generation (RAG)",
+      "Prompt Engineering",
+      "Embeddings",
+      "Vector Search",
+      "Amazon Bedrock",
+      "OpenAI API",
+      "MCP / FastMCP",
+      "Cursor AI",
+      "Claude Code",
+    ],
   },
   {
     label: "Databases & Cloud",
     tag: "05",
     blurb: "Where the data lives and scales",
-    skills: ["MongoDB", "MySQL", "S3 Vectors", "AWS EC2 & Lambda", "API Gateway", "IAM & S3"],
+    skills: [
+      "MongoDB",
+      "MySQL",
+      "PostgreSQL",
+      "Amazon DynamoDB",
+      "Amazon EC2",
+      "AWS IAM",
+      "AWS Lambda",
+      "Amazon API Gateway",
+      "Amazon S3",
+      "Amazon Bedrock",
+    ],
   },
   {
     label: "DevOps & Tools",
     tag: "06",
     blurb: "Shipping reliably, again and again",
-    skills: ["Docker", "Linux", "Git & Bitbucket", "GitHub Actions", "CI/CD", "Vercel", "Postman", "Jira"],
+    skills: [
+      "Docker",
+      "Linux",
+      "Git",
+      "Bitbucket",
+      "GitHub Actions",
+      "CI/CD",
+      "Terraform",
+      "Grafana",
+      "Vercel",
+      "Postman",
+      "Jira",
+      "UAT",
+    ],
   },
 ];
 
@@ -112,12 +141,13 @@ export const timeline: TimelineItem[] = [
     period: "Jan 2025 — Present",
     location: "Remote, India",
     bullets: [
-      "Architected a scalable mobile (React Native) and web (React.js) application, Palms, visualizing construction project performance on an interactive map for real-time site updates.",
-      "Designed and built high-performance backend REST APIs using Node.js, Express.js, Flask, and FastAPI, powering AI-enabled workflows for the ExecutiveEye enterprise platform.",
-      "Developed modern, responsive React.js and Next.js interfaces integrating AI-powered backend services with Tailwind CSS and DaisyUI.",
-      "Optimized application performance using React hooks, Context API, and lazy loading — improving load times and UX by 30%.",
-      "Built the Xeye-Intelligence cross-platform app with React Native (Expo), integrating TanStack Query for fast data fetching, caching, and state management.",
-      "Followed Agile methodology using Jira, Git, and Bitbucket, maintaining CI/CD pipelines for efficient, high-quality delivery.",
+      "Developed and maintained enterprise-scale AI-powered web and mobile applications using <b>React.js</b>, <b>Next.js</b>, <b>React Native (Expo)</b>, <b>TypeScript</b>, <b>FastAPI</b>, <b>Node.js</b>, and <b>Express.js</b>, delivering scalable solutions for project intelligence and business analytics.",
+      "Engineered AI-driven features including <b>AI Chat Agent</b>, <b>AI Voice Agent</b>, <b>AI Insights</b>, and <b>Executive Reporting</b> by integrating <b>Amazon Bedrock</b>, <b>LLMs</b>, <b>RAG</b>, <b>LangChain</b>, and <b>LangGraph</b> into production applications.",
+      "Built scalable <b>REST APIs</b>, reusable frontend components, and responsive dashboards using <b>Tailwind CSS</b>, <b>DaisyUI</b>, <b>TanStack Query</b>, <b>MongoDB</b>, and <b>MySQL</b>, improving application performance, maintainability, and user experience.",
+      "Contributed to the <b>Executive Eye</b> platform by developing modules for project management, media management, analytics dashboards, workflow automation, real-time monitoring, and AI-powered decision support.",
+      "Owned the complete feature lifecycle — requirement analysis, <b>Jira</b> story and bug creation, solution design, development, code reviews, integration testing, <b>UAT</b>, deployment, and post-release production support.",
+      "Automated application delivery through <b>Docker</b>, <b>GitHub Actions</b>, <b>Terraform</b>, and <b>AWS</b>, while monitoring production environments using <b>Grafana</b> and <b>Prometheus</b> to ensure system reliability and operational health.",
+      "Collaborated within <b>Agile/Scrum</b> teams using <b>Jira</b>, <b>Git</b>, <b>Bitbucket</b>, and <b>CI/CD</b> pipelines, working closely with product managers, designers, and QA engineers to deliver high-quality enterprise software on schedule.",
     ],
   },
   {
@@ -147,36 +177,53 @@ export type Project = {
   liveUrl?: string;
   repoUrl?: string;
   linkLabel?: string;
+  hideRepo?: boolean;
 };
 
 export const projects: Project[] = [
   {
     featured: true,
     name: "XEYE-NEXTGEN",
-    tagline: "Multi-Agent AI Platform · Full Stack / AI",
+    tagline: "Enterprise AI Project Intelligence Platform · Full Stack / AI",
     description:
-      "A multi-tenant enterprise SaaS platform unifying project controls and AI-driven automation, powered by a LangGraph-orchestrated multi-agent system with strict tenant isolation.",
+      "Executive Eye is a centralized enterprise project intelligence platform that unifies project data from multiple systems into a single source of truth. It enables executives, project managers, and stakeholders to monitor project health, construction progress, financial performance, contract status, risks, quality metrics, and AI-generated insights through an interactive dashboard — integrating project schedules, cost management, contracts, geospatial visualization, IoT devices, IP camera feeds, timelapse videos, and BI dashboards for real-time visibility into large-scale infrastructure projects.",
     highlights: [
-      "LangGraph text agent + Amazon Nova Sonic voice agent with intent classification and out-of-scope guardrails",
-      "RAG-based retrieval using AWS Bedrock and S3 Vectors, project-scoped and workspace-wide",
-      "97-tool FastMCP server integrating Oracle Primavera P6 and Unifier with a sync engine and encrypted credentials",
-      "AI conversational assistants with intelligent query routing, tool calling, and contextual retrieval",
+      "Engineered scalable frontend modules with <b>React</b>, <b>Next.js</b>, <b>TypeScript</b> & <b>Tailwind CSS</b> delivering responsive enterprise dashboards and data visualization interfaces",
+      "Developed high-performance backend APIs using <b>Python FastAPI</b>, <b>Node.js</b> & <b>Express.js</b> supporting secure data processing, integration, and analytics across multiple project data sources",
+      "Built <b>AI Chat Assistant</b>, <b>Voice Agent</b> & <b>AI Insights</b> using <b>LangGraph</b>, <b>Amazon Bedrock</b> & <b>RAG</b> — generating intelligent project summaries, contextual recommendations, and executive reports",
+      "Built interactive workspace modules for project overviews, <b>GIS visualization</b>, media galleries, executive reporting, analytics, and intelligent dashboards",
+      "Integrated enterprise data from <b>Oracle Primavera P6</b> & <b>Unifier</b> into a centralized analytics platform via a 97-tool <b>FastMCP</b> server with encrypted credentials and a sync engine",
+      "Implemented <b>multi-tenant architecture</b> with strict tenant isolation, project-scoped and workspace-wide <b>RAG</b> retrieval, and AI query routing with out-of-scope guardrails",
+      "Centralized fragmented project information — reducing manual reporting efforts by providing AI-generated executive summaries and intelligent project insights",
+      "Improved decision-making through unified visualization of project schedules, costs, risks, contracts, quality metrics, and site progress",
+      "Participated in architecture design, feature development, debugging, testing, deployment, and production support within <b>Agile Scrum</b> teams",
     ],
-    stack: ["LangGraph", "AWS Bedrock", "Amazon Nova Sonic", "MCP / FastMCP", "Next.js", "FastAPI", "MongoDB", "Docker"],
+    stack: [
+      "React.js", "Next.js", "TypeScript", "Tailwind CSS", "DaisyUI", "TanStack Query",
+      "Python", "FastAPI", "Node.js", "Express.js", "Pydantic",
+      "LangGraph", "LangChain", "Amazon Bedrock", "RAG", "LLMs", "MCP / FastMCP",
+      "MongoDB", "MySQL",
+      "AWS", "Docker", "GitHub Actions", "CI/CD",
+    ],
+    liveUrl: "https://portal.executive-eye.com",
+    linkLabel: "Visit Portal",
+    hideRepo: true,
   },
   {
     name: "CertifySphere",
     tagline: "Software Innovation & Learning Platform · Full Stack",
     description:
-      "An AI-powered mock test system for certification prep, alongside pre-built fintech UIs and a marketplace for SaaS tools and templates.",
+      "An AI-powered software innovation platform combining certification prep tools, pre-built fintech solutions, software templates, and a product marketplace for SaaS tools and enterprise applications.",
     highlights: [
-      "AI-powered mock tests with multi-level assessments",
-      "Banking UI, trading interfaces, and a news aggregation platform",
-      "Product marketplace for SaaS tools, templates, and ready-to-use software",
+      "Built an <b>AI-powered</b> mock test system for certification preparation with multi-level assessments using <b>OpenAI API</b>",
+      "Developed pre-built fintech solutions including <b>banking UI</b>, trading platform interfaces, and a news aggregation platform",
+      "Created software templates and admin dashboard solutions for <b>SaaS</b> and enterprise applications",
+      "Designed a product marketplace to showcase and distribute <b>SaaS</b> tools, templates, and ready-to-use software products",
     ],
     stack: ["Next.js", "Node.js", "OpenAI API", "MongoDB", "Tailwind CSS", "Vercel"],
     liveUrl: "https://www.certifysphere.com",
     linkLabel: "Visit Site",
+    hideRepo: true,
   },
   {
     name: "Xeye-Intelligence",
@@ -184,38 +231,42 @@ export const projects: Project[] = [
     description:
       "A React Native (Expo) mobile companion to the Xeye platform, built for fast data fetching, caching, and real-time project intelligence on the go.",
     highlights: [
-      "TanStack Query for efficient caching and state management",
-      "Live on the Google Play Store",
+      "<b>TanStack Query</b> for efficient caching and state management",
+      "Live on the <b>Google Play Store</b>",
     ],
     stack: ["React Native", "Expo", "TanStack Query", "TypeScript"],
     liveUrl: "https://play.google.com/store/apps/details?id=com.insynchro.xeye",
     linkLabel: "Play Store",
+    hideRepo: true,
   },
   {
     name: "Bunny Boba",
     tagline: "Full-Stack Business Website",
     description:
       "A modern, fast, and responsive business platform for Bunny Boba LLP, built to strengthen its digital presence with dynamic content management.",
-    highlights: ["Responsive, mobile-first UI development", "Backend API integration & performance optimization"],
+    highlights: ["Responsive, mobile-first UI development", "<b>Backend API</b> integration & performance optimization"],
     stack: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
     liveUrl: "https://www.bunny-boba.com",
     linkLabel: "Visit Site",
+    hideRepo: true,
   },
   {
     name: "Event-Driven Serverless API",
     tagline: "Serverless Cloud Backend · AWS",
     description:
       "A serverless REST API on AWS Lambda and API Gateway, eliminating server management with automatic demand-based scaling.",
-    highlights: ["Reduced operational overhead by ~60% vs. traditional server-based APIs"],
+    highlights: ["Reduced operational overhead by ~60% vs. traditional server-based APIs via <b>AWS Lambda</b> & <b>API Gateway</b>"],
     stack: ["AWS Lambda", "API Gateway", "Node.js", "Serverless"],
+    hideRepo: true,
   },
   {
     name: "Real Estate Marketplace",
     tagline: "MERN-Stack Property Platform",
     description:
       "A complete property marketplace with authentication, listings, image uploads, and advanced filtering, built with a scalable architecture.",
-    highlights: ["Secure authentication & full CRUD operations", "Image upload pipeline with advanced search"],
+    highlights: ["Secure authentication & full <b>CRUD</b> operations", "Image upload pipeline with advanced search"],
     stack: ["MongoDB", "Express", "React", "Node.js"],
+    repoUrl: "https://github.com/harshvishnoi17/mern-estate",
   },
 ];
 

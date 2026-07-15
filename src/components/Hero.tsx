@@ -23,7 +23,7 @@ export default function Hero() {
   return (
     <section id="hero" className="relative min-h-screen flex flex-col justify-center pt-24 pb-10 px-6 md:px-10 overflow-hidden">
       {/* Animated spider-web / data-transmission graphic filling the empty space */}
-      <div className="absolute inset-0 opacity-[0.55] pointer-events-none">
+      <div className="absolute inset-0 opacity-[0.75] pointer-events-none spider-web-wrap">
         <SpiderWeb />
       </div>
 
@@ -34,7 +34,7 @@ export default function Hero() {
           transition={{ delay: 2.3, duration: 0.6 }}
           className="index-label max-w-[220px]"
         >
-          AI Software Engineer &amp; Full‑Stack Developer based in {profile.location}
+          AI Software Engineer &amp; Full‑Stack Developer {profile.location}
         </motion.p>
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
@@ -89,6 +89,7 @@ export default function Hero() {
         <div className="flex gap-3">
           <a
             href="#projects"
+            onClick={(e) => { e.preventDefault(); document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" }); }}
             data-cursor="View"
             className="font-mono text-xs uppercase tracking-wider px-6 py-4 rounded-full bg-accent text-white hover:opacity-85 transition-opacity"
           >
@@ -105,11 +106,29 @@ export default function Hero() {
         </div>
       </motion.div>
 
+      {/* Scroll indicator — above marquee */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 2.8, duration: 0.7 }}
+        className="relative flex flex-col items-center gap-2 mt-8 md:mt-10"
+      >
+        {/* Mouse outline */}
+        <div className="w-6 h-9 rounded-full border-2 border-muted/50 flex justify-center pt-1.5">
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            className="w-1 h-2 rounded-full bg-accent"
+          />
+        </div>
+        <span className="font-mono text-[0.6rem] uppercase tracking-widest text-muted/50">Scroll</span>
+      </motion.div>
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2.4, duration: 0.8 }}
-        className="relative mt-14 md:mt-16 border-y border-line py-4"
+        className="relative mt-4 border-y border-line py-4"
       >
         <Marquee duration={26}>
           {rotatingRoles.map((r, i) => (
@@ -120,6 +139,7 @@ export default function Hero() {
           ))}
         </Marquee>
       </motion.div>
+
     </section>
   );
 }

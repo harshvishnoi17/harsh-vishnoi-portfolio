@@ -4,6 +4,7 @@ import Providers from "@/components/Providers";
 import CustomCursor from "@/components/CustomCursor";
 import Preloader from "@/components/Preloader";
 import SiteHeader from "@/components/SiteHeader";
+import ScrollProgress from "@/components/ScrollProgress";
 
 export const metadata: Metadata = {
   title: "Harsh Vishnoi — AI Software Engineer & Full-Stack Developer",
@@ -41,8 +42,15 @@ export default function RootLayout({
         />
       </head>
       <body suppressHydrationWarning>
+        {/* Force BMW theme as default on every visit */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var t=localStorage.getItem('theme');if(!t){localStorage.setItem('theme','aurora');}})();`,
+          }}
+        />
         <Providers>
           <Preloader />
+          <ScrollProgress />
           <CustomCursor />
           <div className="ambient-glow" />
           <div className="grain" />

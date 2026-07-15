@@ -4,7 +4,7 @@ import { useState, FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, MapPin, Phone, FileDown, Loader2, Check, AlertCircle } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./icons/BrandIcons";
-import { Reveal, RevealHeading } from "./Reveal";
+import { Reveal, RevealHeading, RevealLine, RevealSlide } from "./Reveal";
 import MagneticButton from "./MagneticButton";
 import { profile } from "@/data/portfolio";
 
@@ -37,18 +37,19 @@ export default function Contact() {
 
   return (
     <section id="contact" className="section-pad border-t border-line">
-      <div className="flex items-center gap-4 mb-16">
+      <RevealSlide className="flex items-center gap-4 mb-6">
         <span className="index-label">06</span>
         <span className="index-label">/ Contact</span>
         <div className="flex-1 h-px bg-line" />
-      </div>
+      </RevealSlide>
 
+      <RevealLine delay={0.05} />
       <RevealHeading
         text="Let's build something amazing together."
-        className="font-display font-semibold leading-[0.95] tracking-tight text-[9vw] md:text-[6vw] mb-4"
+        className="font-display font-semibold leading-[0.95] tracking-tight text-[9vw] md:text-[6vw] mb-3"
       />
       <Reveal delay={0.1}>
-        <p className="text-muted text-[1.02rem] leading-[1.7] max-w-[560px] font-light mb-16">
+        <p className="text-muted text-[1.02rem] leading-[1.7] max-w-[560px] font-light mb-8">
           Whether you&apos;re looking to build an AI-powered product, modern web application, or enterprise
           software — I&apos;d love to connect.
         </p>

@@ -52,7 +52,7 @@ export default function NetworkCanvas({
       raf = requestAnimationFrame(frame);
       if (!visible) return;
 
-      const accent = getComputedStyle(canvas).getPropertyValue("--accent").trim() || "#ff2d3c";
+      const accent = getComputedStyle(document.documentElement).getPropertyValue("--accent").trim() || "#ff2d3c";
       const rgb = hexToRgbTriplet(accent);
 
       ctx.clearRect(0, 0, w, h);
@@ -103,5 +103,12 @@ function hexToRgbTriplet(color: string) {
     const bigint = parseInt(full, 16);
     return `${(bigint >> 16) & 255},${(bigint >> 8) & 255},${bigint & 255}`;
   }
+  if (color.startsWith("rgb")) {
+    const nums = color.match(/[\d.]+/g);
+    if (nums && nums.length >= 3) return `${nums[0]},${nums[1]},${nums[2]}`;
+  }
+  // space-separated CSS var format
+  const parts = color.trim().split(/\s+/);
+  if (parts.length === 3) return parts.join(",");
   return "255,45,60";
 }

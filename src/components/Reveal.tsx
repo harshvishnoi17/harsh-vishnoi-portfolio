@@ -29,6 +29,43 @@ export function Reveal({
   );
 }
 
+/** Slides in from the left — good for index labels, stat numbers, side elements */
+export function RevealSlide({
+  children,
+  delay = 0,
+  className = "",
+}: {
+  children: ReactNode;
+  delay?: number;
+  className?: string;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: -24 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, amount: 0.4 }}
+      transition={{ duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+/** An accent line that sweeps in from left — place above section headings */
+export function RevealLine({ delay = 0 }: { delay?: number }) {
+  return (
+    <motion.div
+      initial={{ scaleX: 0 }}
+      whileInView={{ scaleX: 1 }}
+      viewport={{ once: true, amount: 0.8 }}
+      transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }}
+      style={{ originX: 0 }}
+      className="h-px w-16 bg-accent mb-4"
+    />
+  );
+}
+
 export function RevealStagger({
   children,
   className = "",

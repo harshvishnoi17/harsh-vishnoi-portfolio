@@ -5,6 +5,12 @@ import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-
 import ThemeSwitcher from "./ThemeSwitcher";
 import { navLinks, profile } from "@/data/portfolio";
 
+function smoothScrollTo(href: string) {
+  const id = href.replace("#", "");
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -23,7 +29,7 @@ export default function SiteHeader() {
           scrolled && !open ? "backdrop-blur-md bg-bg/70 border-b border-line" : ""
         }`}
       >
-        <a href="#hero" className="font-display font-semibold text-lg tracking-tight" data-cursor="Home">
+        <a href="#hero" className="font-display font-semibold text-2xl tracking-tight" data-cursor="Home">
           HV<span className="text-accent">.</span>
         </a>
         <div className="flex items-center gap-4">
@@ -59,22 +65,27 @@ export default function SiteHeader() {
             animate={{ clipPath: "inset(0 0 0% 0)" }}
             exit={{ clipPath: "inset(0 0 100% 0)" }}
             transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
-            className="fixed inset-0 z-[400] bg-bg flex flex-col justify-between px-6 md:px-14 pt-28 pb-12"
+            className="fixed inset-0 z-[400] bg-bg flex flex-col justify-between px-6 md:px-14 pt-24 pb-8 overflow-y-auto"
           >
             <nav className="flex flex-col">
               {navLinks.map((l, i) => (
                 <motion.a
                   key={l.href}
                   href={l.href}
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setOpen(false);
+                    // wait for menu close animation before scrolling
+                    setTimeout(() => smoothScrollTo(l.href), 400);
+                  }}
                   initial={{ y: 60, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.15 + i * 0.06, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                   data-cursor="View"
-                  className="group flex items-baseline gap-5 py-3 md:py-4 border-b border-line"
+                  className="group flex items-baseline gap-5 py-2 md:py-3 border-b border-line"
                 >
                   <span className="font-mono text-xs text-muted w-8">0{i + 1}</span>
-                  <span className="font-display font-semibold text-[10vw] md:text-[5.2vw] leading-none tracking-tight group-hover:text-accent transition-colors">
+                  <span className="font-display font-semibold text-[8vw] md:text-[4.5vw] leading-none tracking-tight group-hover:text-accent transition-colors">
                     {l.label}
                   </span>
                 </motion.a>

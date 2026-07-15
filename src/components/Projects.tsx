@@ -5,7 +5,7 @@ import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motio
 import { ArrowUpRight, Plus } from "lucide-react";
 import { GithubIcon } from "./icons/BrandIcons";
 import NetworkCanvas from "./NetworkCanvas";
-import { Reveal, RevealHeading } from "./Reveal";
+import { Reveal, RevealHeading, RevealLine, RevealSlide } from "./Reveal";
 import { projects, profile } from "@/data/portfolio";
 
 export default function Projects() {
@@ -25,18 +25,19 @@ export default function Projects() {
         my.set(e.clientY);
       }}
     >
-      <div className="flex items-center gap-4 mb-16">
+      <RevealSlide className="flex items-center gap-4 mb-6">
         <span className="index-label">04</span>
         <span className="index-label">/ Projects</span>
         <div className="flex-1 h-px bg-line" />
-      </div>
+      </RevealSlide>
 
+      <RevealLine delay={0.05} />
       <RevealHeading
         text="Selected work."
-        className="font-display font-semibold text-[clamp(2rem,4.4vw,3.6rem)] leading-[1.05] tracking-tight mb-5"
+        className="font-display font-semibold text-[clamp(2rem,4.4vw,3.6rem)] leading-[1.05] tracking-tight mb-3"
       />
       <Reveal delay={0.1}>
-        <p className="text-muted text-[1.02rem] leading-[1.7] max-w-[640px] font-light mb-14">
+        <p className="text-muted text-[1.02rem] leading-[1.7] max-w-[640px] font-light mb-8">
           Production platforms and experiments spanning enterprise SaaS, AI agents, and full-stack applications.
           Click a row for details.
         </p>
@@ -99,17 +100,19 @@ export default function Projects() {
                       <ArrowUpRight size={16} />
                     </a>
                   )}
-                  <a
-                    href={p.repoUrl || profile.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    data-cursor="Code"
-                    className="w-10 h-10 rounded-full border border-line flex items-center justify-center hover:border-fg transition-colors"
-                    aria-label="View on GitHub"
-                  >
-                    <GithubIcon size={15} />
-                  </a>
+                  {!p.hideRepo && (
+                    <a
+                      href={p.repoUrl || profile.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      data-cursor="Code"
+                      className="w-10 h-10 rounded-full border border-line flex items-center justify-center hover:border-fg transition-colors"
+                      aria-label="View on GitHub"
+                    >
+                      <GithubIcon size={15} />
+                    </a>
+                  )}
                 </div>
 
                 <span className="self-start md:self-center w-10 h-10 rounded-full border border-line flex items-center justify-center flex-none">
@@ -137,7 +140,7 @@ export default function Projects() {
                           {p.highlights.map((h) => (
                             <li key={h} className="text-[0.9rem] font-light flex gap-3 leading-[1.6]">
                               <span className="text-accent flex-none">▹</span>
-                              {h}
+                              <span className="[&_b]:text-fg [&_b]:font-medium" dangerouslySetInnerHTML={{ __html: h }} />
                             </li>
                           ))}
                         </ul>

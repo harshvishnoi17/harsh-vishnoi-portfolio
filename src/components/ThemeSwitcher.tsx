@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 const THEMES = [
   { id: "dark", label: "Spider", swatch: "linear-gradient(135deg, #0a0a0a 50%, #ff2d3c 50%)" },
   { id: "light", label: "Light", swatch: "linear-gradient(135deg, #f5f3ee 50%, #d61f2c 50%)" },
-  { id: "aurora", label: "Aurora", swatch: "linear-gradient(135deg, #ff2fd0, #7c5cff, #22d3ee)" },
+  { id: "aurora", label: "BMW M", swatch: "linear-gradient(135deg, #ffffff 40%, #1c69d4 40%, #1c69d4 70%, #e22718 70%)" },
   { id: "iron", label: "Iron", swatch: "linear-gradient(135deg, #e2352f 45%, #ffd35c 100%)" },
 ] as const;
 

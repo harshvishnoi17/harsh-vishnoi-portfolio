@@ -78,9 +78,14 @@ export default function SpiderWeb({ className = "" }: { className?: string }) {
       cy = h * 0.42;
       radius = Math.min(w, h) * 0.62;
 
-      const styles = getComputedStyle(canvas);
+      const styles = getComputedStyle(document.documentElement);
       const accent = styles.getPropertyValue("--accent").trim() || "#ff2d3c";
       const fg = styles.getPropertyValue("--fg").trim() || "#f5f4f0";
+      const bg = styles.getPropertyValue("--bg").trim() || "#0a0a0a";
+      // detect light mode by checking if bg is a light color
+      const isLight = bg.startsWith("#f") || bg.startsWith("#e") || bg.startsWith("#d");
+      const lineOpacity = isLight ? 0.45 : 0.32;
+      const ringOpacity = isLight ? 0.35 : 0.25;
 
       ctx.clearRect(0, 0, w, h);
 
@@ -93,8 +98,8 @@ export default function SpiderWeb({ className = "" }: { className?: string }) {
           if (s === 0) ctx.moveTo(p.x, p.y);
           else ctx.lineTo(p.x, p.y);
         }
-        ctx.strokeStyle = hexToRgba(fg, 0.14);
-        ctx.lineWidth = 1;
+        ctx.strokeStyle = hexToRgba(fg, lineOpacity);
+        ctx.lineWidth = 1.2;
         ctx.stroke();
       });
 
@@ -108,7 +113,7 @@ export default function SpiderWeb({ className = "" }: { className?: string }) {
           else ctx.lineTo(p.x, p.y);
         });
         ctx.closePath();
-        ctx.strokeStyle = hexToRgba(accent, 0.1);
+        ctx.strokeStyle = hexToRgba(accent, ringOpacity);
         ctx.lineWidth = 1;
         ctx.stroke();
       });
@@ -120,22 +125,26 @@ export default function SpiderWeb({ className = "" }: { className?: string }) {
         const leg = legs[pk.leg];
         const p = legPoint(leg, pk.t, time);
         ctx.beginPath();
-        ctx.arc(p.x, p.y, 2.4, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
         ctx.fillStyle = accent;
         ctx.shadowColor = accent;
-        ctx.shadowBlur = 8;
+        ctx.shadowBlur = 12;
         ctx.fill();
         ctx.shadowBlur = 0;
       });
 
       // center node
       ctx.beginPath();
-      ctx.arc(cx, cy, 4, 0, Math.PI * 2);
+      ctx.arc(cx, cy, 5, 0, Math.PI * 2);
       ctx.fillStyle = accent;
+      ctx.shadowColor = accent;
+      ctx.shadowBlur = 16;
       ctx.fill();
+      ctx.shadowBlur = 0;
       ctx.beginPath();
-      ctx.arc(cx, cy, 9, 0, Math.PI * 2);
-      ctx.strokeStyle = hexToRgba(accent, 0.4);
+      ctx.arc(cx, cy, 12, 0, Math.PI * 2);
+      ctx.strokeStyle = hexToRgba(accent, 0.5);
+      ctx.lineWidth = 1;
       ctx.stroke();
     };
 
@@ -152,13 +161,25 @@ export default function SpiderWeb({ className = "" }: { className?: string }) {
 }
 
 function hexToRgba(color: string, alpha: number) {
+  // Handle hex
   if (color.startsWith("#")) {
     const hex = color.replace("#", "");
-    const bigint = parseInt(hex.length === 3 ? hex.split("").map((c) => c + c).join("") : hex, 16);
+    const full = hex.length === 3 ? hex.split("").map((c) => c + c).join("") : hex;
+    const bigint = parseInt(full, 16);
     const r = (bigint >> 16) & 255;
     const g = (bigint >> 8) & 255;
     const b = bigint & 255;
     return `rgba(${r},${g},${b},${alpha})`;
+  }
+  // Handle rgb(...) / rgba(...)
+  if (color.startsWith("rgb")) {
+    const nums = color.match(/[\d.]+/g);
+    if (nums && nums.length >= 3) return `rgba(${nums[0]},${nums[1]},${nums[2]},${alpha})`;
+  }
+  // Handle space-separated "r g b" CSS variable format
+  const parts = color.trim().split(/\s+/);
+  if (parts.length === 3 && parts.every((p) => !isNaN(Number(p)))) {
+    return `rgba(${parts[0]},${parts[1]},${parts[2]},${alpha})`;
   }
   return color;
 }

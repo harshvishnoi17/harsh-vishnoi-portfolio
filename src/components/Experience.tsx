@@ -2,21 +2,22 @@
 
 import { motion } from "framer-motion";
 import { Briefcase, GraduationCap, Award } from "lucide-react";
-import { Reveal, RevealHeading } from "./Reveal";
+import { Reveal, RevealHeading, RevealLine, RevealSlide } from "./Reveal";
 import { timeline, certifications } from "@/data/portfolio";
 
 export default function Experience() {
   return (
     <section id="experience" className="section-pad border-t border-line">
-      <div className="flex items-center gap-4 mb-16">
+      <RevealSlide className="flex items-center gap-4 mb-6">
         <span className="index-label">03</span>
         <span className="index-label">/ Experience</span>
         <div className="flex-1 h-px bg-line" />
-      </div>
+      </RevealSlide>
 
+      <RevealLine delay={0.05} />
       <RevealHeading
         text="Where I've been building."
-        className="font-display font-semibold text-[clamp(2rem,4.4vw,3.6rem)] leading-[1.05] tracking-tight mb-16"
+        className="font-display font-semibold text-[clamp(2rem,4.4vw,3.6rem)] leading-[1.05] tracking-tight mb-8"
       />
 
       <div className="flex flex-col">
@@ -43,7 +44,7 @@ export default function Experience() {
               {entry.bullets.map((b, bi) => (
                 <li key={bi} className="text-muted font-light text-[0.96rem] leading-[1.6] flex gap-3">
                   <span className="text-accent font-mono flex-none">/</span>
-                  {b}
+                  <span className="[&_b]:text-fg [&_b]:font-medium" dangerouslySetInnerHTML={{ __html: b }} />
                 </li>
               ))}
             </ul>
