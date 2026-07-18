@@ -34,7 +34,7 @@ export default function Hero() {
           transition={{ delay: 2.3, duration: 0.6 }}
           className="index-label max-w-[220px]"
         >
-          AI Software Engineer &amp; Full‑Stack Developer {profile.location}
+          AI Software Engineer &amp; Full‑Stack Developer
         </motion.p>
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}

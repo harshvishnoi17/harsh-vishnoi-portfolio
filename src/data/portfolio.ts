@@ -2,7 +2,7 @@ export const profile = {
   name: "Harsh Vishnoi",
   initials: "HV",
   role: "AI Software Engineer & Full-Stack Developer",
-  location: "Noida, Uttar Pradesh, India",
+  location: "Moradabad, India",
   email: "vishnoiharsh17@gmail.com",
   phone: "+91 78957 67272",
   github: "https://github.com/HarshVshnoi",
@@ -37,7 +37,7 @@ export const aboutFacts = [
   { label: "Full-Stack", value: "React · Next.js · FastAPI · Node.js" },
   { label: "AI Engineering", value: "LangGraph · RAG · Bedrock" },
   { label: "Cloud & DevOps", value: "AWS · Docker · CI/CD" },
-  { label: "Based in", value: "Noida, India" },
+  { label: "Based in", value: "Moradabad, India" },
 ];
 
 export type SkillCategory = {
